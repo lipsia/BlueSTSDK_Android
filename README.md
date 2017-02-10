@@ -181,7 +181,7 @@ Available features can be retrieved from [Features package](https://stmicroelect
     ```Java
     // add the feature to the Nucleo device
     byte deviceId = (byte) 0x80;
-    SparseArray temp = new SparceArray();
+    SparseArray<Class<? extends Feature>> temp = new SparseArray<>();
     // the feature will be mapped in the characteristic 
     // 0x10000000-0001-11e1-ac36-0002a5d5c51b
     temp.append(0x10000000,MyNewFeature.class);
