@@ -26,7 +26,7 @@
  ******************************************************************************/
 package com.st.BlueSTSDK.Log;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
 import com.st.BlueSTSDK.Feature;

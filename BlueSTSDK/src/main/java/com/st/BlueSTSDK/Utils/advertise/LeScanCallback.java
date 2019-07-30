@@ -2,7 +2,7 @@ package com.st.BlueSTSDK.Utils.advertise;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.st.BlueSTSDK.Manager;
 import com.st.BlueSTSDK.Node;

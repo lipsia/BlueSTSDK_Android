@@ -26,13 +26,12 @@
  ******************************************************************************/
 package com.st.BlueSTSDK.Utils;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.st.BlueSTSDK.BuildConfig;
 import com.st.BlueSTSDK.Node;
 import com.st.BlueSTSDK.Utils.advertise.BleAdvertiseInfo;
-import com.st.BlueSTSDK.Utils.advertise.InvalidBleAdvertiseFormat;
 
 import junit.framework.Assert;
 

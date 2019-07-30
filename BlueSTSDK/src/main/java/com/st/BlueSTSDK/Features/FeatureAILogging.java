@@ -1,6 +1,6 @@
 package com.st.BlueSTSDK.Features;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.util.SparseArray;
 
 import com.st.BlueSTSDK.Feature;
@@ -11,7 +11,6 @@ import com.st.BlueSTSDK.Utils.NumberConversion;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.nio.charset.Charset;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 

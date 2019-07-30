@@ -1,6 +1,6 @@
 package com.st.BlueSTSDK.Features;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.st.BlueSTSDK.Feature;
 import com.st.BlueSTSDK.Node;
