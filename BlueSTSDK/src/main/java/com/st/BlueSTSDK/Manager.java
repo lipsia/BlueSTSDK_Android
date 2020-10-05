@@ -32,6 +32,7 @@ import android.bluetooth.BluetoothAdapter;
 
 import android.bluetooth.le.ScanFilter;
 import android.bluetooth.le.ScanSettings;
+import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import androidx.annotation.NonNull;
@@ -344,6 +345,23 @@ public class Manager {
             //never throw from a NodeEmulator
         }//try-catch
     }//addVirtualNode
+
+
+    public void connectNode(Node node, Context context){
+        if (node instanceof NodeEmulator) {
+            ((NodeEmulator)node).connect(context, false);
+        }else  {
+            node.connect(context);
+        }
+    }
+
+    public void disConnectNode(Node node){
+        if (node instanceof NodeEmulator) {
+            ((NodeEmulator)node).disconnect();
+        }else  {
+            node.disconnect();
+        }
+    }
 
 
     /**

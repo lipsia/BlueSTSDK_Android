@@ -205,9 +205,10 @@ public class NodeEmulator extends Node {
      */
     public NodeEmulator(Class<? extends Feature> emulFeature[]) throws InvalidBleAdvertiseFormat {
         //byte{size=5+1,type=vendor_data,data={v1.0,GENERIC board + 4x 0xFF } }
-        super(null, 10, new byte[]{0x07, (byte) 0xFF, (byte) 0x01, (byte) 0x00, (byte) 0xFF,
-                (byte) 0xFF, (byte) 0xFF,
-                (byte) 0xFF});
+        super( new byte[]{
+                13,(byte)0xFF,(byte)0x01,(byte)0x80, (byte)0x00, (byte)0x00, (byte)0x00,
+                (byte)0x00,(byte)0xEF, (byte)0xBE, (byte)0x00, (byte)0xAD, (byte)0xDE, (byte)0x02
+        });
         initHandler();
         buildAvailableFeatures(emulFeature);
         mEmulatorId = ++mEmulatorLastId;
