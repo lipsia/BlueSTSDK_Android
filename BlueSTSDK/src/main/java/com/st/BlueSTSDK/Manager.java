@@ -340,7 +340,7 @@ public class Manager {
      */
     public void addVirtualNode() {
         try {
-           addNode(new NodeEmulator());
+           addNode(new NodeEmulator());// now works
         }catch(InvalidBleAdvertiseFormat e){
             //never throw from a NodeEmulator
         }//try-catch
