@@ -318,11 +318,11 @@ public class Node{
             }else{
                 //https://stackoverflow.com/questions/33718807/forcefully-turning-off-ble-device-connected-to-android-app-fires-onconnectionsta
                 if(status==8 && // 8 = link lost
-                        newState == BluetoothGatt.STATE_DISCONNECTED){
+                        newState == BluetoothGatt.STATE_DISCONNECTED &&
+                        mConnectionOption.enableAutoConnect()){
                     Node.this.updateNodeStatus(State.Unreachable);
                     return;
                 }
-                /*
                 //close & clean the dead connection
                 if(mConnection!=null) {
                     if (mGattServer != null) {
@@ -333,7 +333,6 @@ public class Node{
                 cleanConnectionData();
                 //notify to the user
                 Node.this.updateNodeStatus(State.Dead);
-                */
             }//if status
         }//onConnectionStateChange
 
@@ -1228,16 +1227,6 @@ public class Node{
      */
     public void connect(Context c){
         connect(c, ConnectionOption.builder().build());
-    }//connect
-
-    /**
-     * open a gatt connection
-     * @param c context to use for open the connection
-     * @param resetCache should usually be false
-     * @param autoConnect enable auto connection as soon as device becomes available
-     */
-    public void connect(Context c, boolean resetCache, boolean autoConnect){
-        connect(c, ConnectionOption.builder().enableAutoConnect(autoConnect).build());
     }//connect
 
     /**
