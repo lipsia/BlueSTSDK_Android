@@ -1547,11 +1547,12 @@ public class Node{
      * @param feature feature to search
      * @return null if the feature is not handle by the node, the characteristics otherwise
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private BluetoothGattCharacteristic getCorrespondingChar(Feature feature){
         ArrayList<BluetoothGattCharacteristic> candidateChar = new ArrayList<>();
         for (Map.Entry<BluetoothGattCharacteristic,List<Feature>> e: mCharFeatureMap.entrySet()){
             List<Feature> featureList = e.getValue();
-            if(featureList.contains(feature)){
+            if(featureList.stream().anyMatch(f -> f.getClass() == feature.getClass())){
                 candidateChar.add(e.getKey());
             }
         }//for entry

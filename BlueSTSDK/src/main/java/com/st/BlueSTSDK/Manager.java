@@ -30,6 +30,7 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.bluetooth.BluetoothAdapter;
 
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.le.ScanFilter;
 import android.bluetooth.le.ScanSettings;
 import android.content.Context;
@@ -37,6 +38,7 @@ import android.os.Build;
 import android.os.Handler;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.annotation.RequiresPermission;
 import androidx.annotation.WorkerThread;
 import android.util.Log;
@@ -57,6 +59,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -437,6 +440,11 @@ public class Manager {
         }//if
         removeNodes();
     }//resetDiscovery
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void removeNode(final String nodeTag){
+        mDiscoverNode.stream().filter(node -> node.getTag().equals(nodeTag)).findAny().ifPresent(mDiscoverNode::remove);
+    }
 
     /**
      * add a listener for the event send by the manager

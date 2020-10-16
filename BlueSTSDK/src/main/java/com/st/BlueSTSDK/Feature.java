@@ -150,19 +150,23 @@ public abstract class Feature {
      * add a new listener for the update of this feature
      *
      * @param listener listener class
+     * @return true if the listener was added (usually false if it already existed)
      */
-    public void addFeatureListener(FeatureListener listener) {
-        if (listener != null)
-            mFeatureListener.addIfAbsent(listener);
+    public boolean addFeatureListener(FeatureListener listener) {
+        if (listener != null){
+            return mFeatureListener.addIfAbsent(listener);
+        }
+        return false;
     }//addFeatureListener
 
     /**
      * remove a listener for the update of this feature
      *
      * @param listener listener to remove
+     * @return true if the listener was removed (usually false if it did not exist)
      */
-    public void removeFeatureListener(FeatureListener listener) {
-        mFeatureListener.remove(listener);
+    public boolean removeFeatureListener(FeatureListener listener) {
+        return mFeatureListener.remove(listener);
     }
 
     /**
