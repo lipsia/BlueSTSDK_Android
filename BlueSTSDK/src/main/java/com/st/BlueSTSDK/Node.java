@@ -893,11 +893,12 @@ public class Node{
      * task that open a connection with the remote device
      */
     private Runnable mConnectionTask = new Runnable() {
+        @RequiresApi(api = Build.VERSION_CODES.M)
         @Override
         public void run() {
             mConnection = mDevice.connectGatt(mContext,
                     mConnectionOption.enableAutoConnect(),
-                    new GattNodeConnection());
+                    new GattNodeConnection(), BluetoothDevice.TRANSPORT_LE);
             if(mGattServer!=null) {
                 mGattServer.initializeGattServer(mContext);
                 mGattServer.connect();
