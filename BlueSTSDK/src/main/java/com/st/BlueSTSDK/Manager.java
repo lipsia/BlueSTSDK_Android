@@ -337,33 +337,13 @@ public class Manager {
         return false;
     }
 
-    /**
-     * Add a fake Node to the list
-     *
-     */
-    public void addVirtualNode() {
-        try {
-           addNode(new NodeEmulator());// now works
-        }catch(InvalidBleAdvertiseFormat e){
-            //never throw from a NodeEmulator
-        }//try-catch
-    }//addVirtualNode
-
 
     public void connectNode(Node node, Context context){
-        if (node instanceof NodeEmulator) {
-            ((NodeEmulator)node).connect(context, false);
-        }else  {
-            node.connect(context);
-        }
+        node.connect(context);
     }
 
     public void disConnectNode(Node node){
-        if (node instanceof NodeEmulator) {
-            ((NodeEmulator)node).disconnect();
-        }else  {
-            node.disconnect();
-        }
+        node.disconnect();
     }
 
 
